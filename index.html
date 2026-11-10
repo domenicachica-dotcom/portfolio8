@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doménica Chica | Portafolio de Diseño Gráfico</title>
+  <!-- Google Fonts: Editorial Sans + Cursiva Display + Body -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Playfair+Display:ital,wght@1,400;1,600&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              black: '#121214',
+              surface: '#18181b',
+              wine: '#841922',
+              crimson: '#9b1b28',
+              novaPurple: '#41285A',
+              novaLilac: '#9B81A6',
+              novaLight: '#B9A3BF',
+              sand: '#F7F6F2',
+              muted: '#A1A1AA'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Italiana"', 'serif'],
+            script: ['"Playfair Display"', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Estilos fluidos y orgánicos */
+    ::selection {
+      background-color: #841922;
+      color: #ffffff;
+    }
+    
+    /* Scrollbar sutil y elegante */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #121214;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #27272a;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #841922;
+    }
+
+    .editorial-border {
+      border-color: rgba(255, 255, 255, 0.08);
+    }
+    
+    .blob-bg {
+      background: radial-gradient(circle at 50% 30%, rgba(132, 25, 34, 0.15) 0%, rgba(65, 40, 90, 0.1) 45%, transparent 70%);
+    }
+
+    /* Animaciones suaves para transiciones de sección */
+    .fade-in-section {
+      animation: fadeIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(12px) scale(0.995);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .grain-overlay {
+      background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 0);
+      background-size: 24px 24px;
+    }
+  </style>
+</head>
+
+<body class="bg-brand-black text-brand-sand min-h-screen font-sans antialiased overflow-x-hidden selection:bg-brand-wine selection:text-white relative">
+
+  <!-- Fondo ambiental decorativo -->
+  <div class="fixed inset-0 blob-bg pointer-events-none z-0"></div>
+  <div class="fixed inset-0 grain-overlay pointer-events-none z-0"></div>
+
+  <!-- NAVEGACIÓN SUPERIOR FLUIDA (Dividida por secciones) -->
+  <header class="fixed top-0 left-0 right-0 z-40 backdrop-blur-md bg-brand-black/75 border-b editorial-border">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 h-20 flex items-center justify-between">
+      <!-- Marca Personal -->
+      <a href="javascript:void(0)" onclick="navigateTo('inicio')" class="group flex items-center gap-3">
+        <span class="w-8 h-8 rounded-full border border-brand-wine flex items-center justify-center font-display text-base text-brand-sand group-hover:bg-brand-wine transition-all duration-300">
+          D
+        </span>
+        <div class="flex flex-col">
+          <span class="font-display tracking-widest text-sm uppercase text-white font-medium">Doménica Chica</span>
+          <span class="text-[10px] tracking-wider text-brand-muted uppercase">Graphic Designer • 2026</span>
+        </div>
+      </a>
+
+      <!-- Menú Modular en Desktop -->
+      <nav class="hidden md:flex items-center gap-1 bg-brand-surface/70 px-3 py-1.5 rounded-full border editorial-border">
+        <button onclick="navigateTo('inicio')" data-target="inicio" class="nav-btn px-4 py-1.5 text-xs tracking-wider uppercase rounded-full transition-all duration-300 text-white font-medium bg-brand-wine/40">
+          Inicio
+        </button>
+        <button onclick="navigateTo('sobre-mi')" data-target="sobre-mi" class="nav-btn px-4 py-1.5 text-xs tracking-wider uppercase rounded-full transition-all duration-300 text-brand-muted hover:text-white">
+          Sobre Mí
+        </button>
+        <button onclick="navigateTo('proyectos')" data-target="proyectos" class="nav-btn px-4 py-1.5 text-xs tracking-wider uppercase rounded-full transition-all duration-300 text-brand-muted hover:text-white">
+          Proyectos
+        </button>
+        <button onclick="navigateTo('hobbies')" data-target="hobbies" class="nav-btn px-4 py-1.5 text-xs tracking-wider uppercase rounded-full transition-all duration-300 text-brand-muted hover:text-white">
+          Hobbies
+        </button>
+        <button onclick="navigateTo('contacto')" data-target="contacto" class="nav-btn px-4 py-1.5 text-xs tracking-wider uppercase rounded-full transition-all duration-300 text-brand-muted hover:text-white">
+          Contacto
+        </button>
+      </nav>
+
+      <!-- Acción rápida / Redes -->
+      <div class="hidden sm:flex items-center gap-4 text-brand-muted">
+        <a href="https://www.behance.net/gallery/236396865/lberia-Tipografia-Modular" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors" title="Behance">
+          <i class="ph ph-behance-logo text-xl"></i>
+        </a>
+        <a href="mailto:novastudio@gmail.com" class="hover:text-white transition-colors" title="Correo">
+          <i class="ph ph-envelope-simple text-xl"></i>
+        </a>
+        <button onclick="navigateTo('contacto')" class="text-xs tracking-wider uppercase px-4 py-2 rounded-full border border-brand-wine/80 text-brand-sand hover:bg-brand-wine hover:text-white transition-all duration-300 font-medium">
+          Hablemos
+        </button>
+      </div>
+
+      <!-- Botón Móvil -->
+      <button onclick="toggleMobileMenu()" class="md:hidden text-2xl text-brand-sand p-2 focus:outline-none" aria-label="Abrir Menú">
+        <i id="mobileMenuIcon" class="ph ph-list"></i>
+      </button>
+    </div>
+
+    <!-- Menú Desplegable Móvil -->
+    <div id="mobileMenu" class="hidden md:hidden bg-brand-surface/95 border-b editorial-border px-6 py-6 transition-all duration-300">
+      <div class="flex flex-col gap-3">
+        <button onclick="navigateTo('inicio'); toggleMobileMenu()" class="text-left py-2 text-sm tracking-wider uppercase text-brand-sand font-medium hover:text-brand-crimson">Inicio</button>
+        <button onclick="navigateTo('sobre-mi'); toggleMobileMenu()" class="text-left py-2 text-sm tracking-wider uppercase text-brand-sand font-medium hover:text-brand-crimson">Sobre Mí</button>
+        <button onclick="navigateTo('proyectos'); toggleMobileMenu()" class="text-left py-2 text-sm tracking-wider uppercase text-brand-sand font-medium hover:text-brand-crimson">Proyectos</button>
+        <button onclick="navigateTo('hobbies'); toggleMobileMenu()" class="text-left py-2 text-sm tracking-wider uppercase text-brand-sand font-medium hover:text-brand-crimson">Hobbies & Creatividad</button>
+        <button onclick="navigateTo('contacto'); toggleMobileMenu()" class="text-left py-2 text-sm tracking-wider uppercase text-brand-sand font-medium hover:text-brand-crimson">Contacto</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTENEDOR PRINCIPAL MODULAR (Vistas divididas e independientes) -->
+  <main class="relative z-10 pt-24 min-h-[calc(100vh-80px)] flex flex-col justify-center">
+
+    <!-- ==================== SECCIÓN 1: INICIO ==================== -->
+    <section id="section-inicio" class="section-pane active fade-in-section max-w-7xl mx-auto px-5 sm:px-8 py-12 md:py-20 w-full">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <!-- Texto Hero -->
+        <div class="lg:col-span-8 flex flex-col gap-6">
+          <div class="inline-flex items-center gap-2 text-brand-wine text-xs uppercase tracking-[0.25em] font-semibold">
+            <span class="w-2 h-2 rounded-full bg-brand-wine animate-pulse"></span>
+            Graphic Designer • Estudiante Universidad del Azuay
+          </div>
+          
+          <h1 class="font-display text-5xl sm:text-7xl lg:text-8xl tracking-tight leading-[1.05] text-white">
+            Doménica <br>
+            <span class="font-script italic font-normal text-brand-wine">Chica</span>
+          </h1>
+
+          <p class="font-script italic text-2xl sm:text-3xl text-zinc-300 font-light max-w-2xl leading-relaxed">
+            "Every design tells a story, let's create yours."
+          </p>
+
+          <p class="text-brand-muted text-sm sm:text-base max-w-xl font-light leading-relaxed">
+            Diseñadora gráfica enfocada en branding e identidad visual, diseño editorial, visualización de datos y experimentación tipográfica con sensibilidad orgánica.
+          </p>
+
+          <div class="flex flex-wrap items-center gap-4 pt-4">
+            <button onclick="navigateTo('proyectos')" class="group px-7 py-3.5 rounded-full bg-brand-wine hover:bg-brand-crimson text-white text-xs uppercase tracking-widest font-semibold transition-all duration-300 shadow-lg shadow-brand-wine/20 flex items-center gap-2">
+              Explorar Proyectos
+              <i class="ph ph-arrow-up-right group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
+            </button>
+            <button onclick="navigateTo('sobre-mi')" class="px-7 py-3.5 rounded-full border editorial-border hover:border-brand-wine/60 text-brand-sand text-xs uppercase tracking-widest font-medium transition-all duration-300 bg-brand-surface/40">
+              Conocer mi Enfoque
+            </button>
+          </div>
+        </div>
+
+        <!-- Mosaico / Bloque Visual Asimétrico y Fluido -->
+        <div class="lg:col-span-4 relative">
+          <div class="relative mx-auto max-w-sm">
+            <!-- Marco decorativo curvado -->
+            <div class="absolute -inset-2 rounded-[2.5rem] bg-gradient-to-tr from-brand-wine/30 via-brand-novaPurple/30 to-transparent blur-md"></div>
+            
+            <div class="relative rounded-[2rem] bg-brand-surface border editorial-border p-6 shadow-2xl overflow-hidden">
+              <div class="flex items-center justify-between pb-5 border-b editorial-border">
+                <span class="text-xs uppercase tracking-widest text-brand-muted">Concept & Form</span>
+                <span class="text-xs text-brand-wine font-medium">Cuenca, EC</span>
+              </div>
+
+              <!-- Previa interactiva pequeña de los proyectos -->
+              <div class="py-6 flex flex-col gap-4">
+                <div class="p-4 rounded-xl bg-brand-black/60 border editorial-border hover:border-brand-wine/50 transition-all cursor-pointer" onclick="openProjectModal('nova-studio')">
+                  <div class="text-[10px] tracking-widest uppercase text-brand-novaLilac">01. Branding</div>
+                  <div class="font-display text-lg text-white">Nova Studio</div>
+                  <div class="text-xs text-brand-muted mt-1">Identidad visual con isotipo plegado modular.</div>
+                </div>
+
+                <div class="p-4 rounded-xl bg-brand-black/60 border editorial-border hover:border-brand-wine/50 transition-all cursor-pointer" onclick="openProjectModal('iberia')">
+                  <div class="text-[10px] tracking-widest uppercase text-amber-400">02. Tipografía</div>
+                  <div class="font-display text-lg text-white">Iberia — Modular Display</div>
+                  <div class="text-xs text-brand-muted mt-1">Inspirada en mosaicos y cerámicas de España.</div>
+                </div>
+
+                <div class="p-4 rounded-xl bg-brand-black/60 border editorial-border hover:border-brand-wine/50 transition-all cursor-pointer" onclick="openProjectModal('source-sans')">
+                  <div class="text-[10px] tracking-widest uppercase text-teal-400">03. Infografía</div>
+                  <div class="font-display text-lg text-white">Source Sans • Paul D. Hunt</div>
+                  <div class="text-xs text-brand-muted mt-1">Análisis de legibilidad y experimentación visual.</div>
+                </div>
+              </div>
+
+              <div class="pt-4 border-t editorial-border flex items-center justify-between text-xs text-brand-muted">
+                <span>Portafolio Oficial</span>
+                <span class="text-white font-mono">v.2026</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECCIÓN 2: SOBRE MÍ ==================== -->
+    <section id="section-sobre-mi" class="section-pane hidden fade-in-section max-w-7xl mx-auto px-5 sm:px-8 py-12 md:py-20 w-full">
+      <div class="max-w-3xl mb-12">
+        <span class="text-brand-wine text-xs uppercase tracking-[0.25em] font-semibold">Background & Enfoque</span>
+        <h2 class="font-display text-4xl sm:text-6xl text-white mt-2">Sobre Mí</h2>
+        <p class="font-script italic text-2xl text-brand-sand/80 mt-2">"A problem solver with a creative soul."</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+        <!-- Bio principal -->
+        <div class="lg:col-span-7 flex flex-col gap-6">
+          <div class="p-8 rounded-3xl bg-brand-surface/70 border editorial-border backdrop-blur-sm relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-brand-wine/10 rounded-full blur-2xl pointer-events-none"></div>
+            
+            <h3 class="text-xl font-display text-white mb-4">Filosofía de Trabajo</h3>
+            <p class="text-brand-sand/90 font-light leading-relaxed mb-4 text-base">
+              Soy <strong>Doménica Chica</strong>, estudiante de Diseño Gráfico, apasionada por la creatividad y la comunicación visual. Me interesa desarrollar proyectos que combinen <strong>estética, funcionalidad y concepto</strong>, buscando crear soluciones visuales que conecten de manera efectiva y memorable con las personas.
+            </p>
+            <p class="text-brand-muted font-light leading-relaxed text-sm">
+              Cada propuesta es abordada como un proceso de investigación donde los fundamentos tipográficos, las proporciones armónicas y los contrastes cromáticos construyen relatos visuales únicos y consistentes.
+            </p>
+
+            <div class="mt-8 pt-6 border-t editorial-border flex items-center gap-4">
+              <div class="w-12 h-12 rounded-2xl bg-brand-wine/20 border border-brand-wine/40 flex items-center justify-center text-brand-wine">
+                <i class="ph ph-graduation-cap text-2xl"></i>
+              </div>
+              <div>
+                <div class="text-xs uppercase tracking-wider text-brand-muted">Formación Académica</div>
+                <div class="text-white font-medium text-sm">Diseño Gráfico • Universidad del Azuay</div>
+                <div class="text-xs text-brand-muted">Cuenca, Ecuador</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Software y herramientas -->
+          <div class="p-8 rounded-3xl bg-brand-surface/40 border editorial-border">
+            <h3 class="text-xs uppercase tracking-widest text-brand-muted mb-6">Herramientas & Software</h3>
+            <div class="grid grid-cols-3 gap-4">
+              <div class="p-4 rounded-2xl bg-brand-black/50 border editorial-border text-center hover:border-brand-wine/40 transition-all">
+                <i class="ph ph-bezier-curve text-2xl text-amber-500 mb-2"></i>
+                <div class="text-xs font-semibold text-white">Illustrator</div>
+                <div class="text-[10px] text-brand-muted">Identidad & Vector</div>
+              </div>
+              <div class="p-4 rounded-2xl bg-brand-black/50 border editorial-border text-center hover:border-brand-wine/40 transition-all">
+                <i class="ph ph-image text-2xl text-blue-400 mb-2"></i>
+                <div class="text-xs font-semibold text-white">Photoshop</div>
+                <div class="text-[10px] text-brand-muted">Edición & Retoque</div>
+              </div>
+              <div class="p-4 rounded-2xl bg-brand-black/50 border editorial-border text-center hover:border-brand-wine/40 transition-all">
+                <i class="ph ph-book-open text-2xl text-pink-500 mb-2"></i>
+                <div class="text-xs font-semibold text-white">InDesign</div>
+                <div class="text-[10px] text-brand-muted">Editorial & Layouts</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Habilidades Adicionales y Tarjeta de Presentación Digital -->
+        <div class="lg:col-span-5 flex flex-col gap-6">
+          <div class="p-8 rounded-3xl bg-gradient-to-br from-brand-surface to-brand-surface/30 border editorial-border flex flex-col justify-between">
+            <div>
+              <h3 class="text-xs uppercase tracking-widest text-brand-wine mb-4 font-semibold">Specialized Skills</h3>
+              <ul class="space-y-3.5">
+                <li class="flex items-center gap-3 text-sm text-brand-sand">
+                  <span class="w-1.5 h-1.5 rounded-full bg-brand-wine"></span>
+                  Branding e Identidad Visual Holística
+                </li>
+                <li class="flex items-center gap-3 text-sm text-brand-sand">
+                  <span class="w-1.5 h-1.5 rounded-full bg-brand-wine"></span>
+                  Diseño Editorial y Sistemas Tipográficos
+                </li>
+                <li class="flex items-center gap-3 text-sm text-brand-sand">
+                  <span class="w-1.5 h-1.5 rounded-full bg-brand-wine"></span>
+                  Visualización de Datos e Infografía Científica
+                </li>
+                <li class="flex items-center gap-3 text-sm text-brand-sand">
+                  <span class="w-1.5 h-1.5 rounded-full bg-brand-wine"></span>
+                  Estrategia Visual & Diseño para Redes Sociales
+                </li>
+                <li class="flex items-center gap-3 text-sm text-brand-sand">
+                  <span class="w-1.5 h-1.5 rounded-full bg-brand-wine"></span>
+                  Experimentación Análoga (Acuarela e Ilustración)
+                </li>
+              </ul>
+            </div>
+
+            <!-- Preview Tarjeta Nova Studio -->
+            <div class="mt-8 pt-6 border-t editorial-border">
+              <div class="text-[11px] uppercase tracking-wider text-brand-muted mb-3">Contacto Corporativo</div>
+              <div class="bg-brand-black/80 p-5 rounded-2xl border editorial-border flex items-center justify-between">
+                <div>
+                  <div class="text-sm font-display text-white">Doménica Chica</div>
+                  <div class="text-xs text-brand-novaLilac">novastudio@gmail.com</div>
+                  <div class="text-xs text-brand-muted mt-1">+593 099 836 8387</div>
+                </div>
+                <button onclick="copyToClipboard('novastudio@gmail.com', this)" class="p-2.5 rounded-xl bg-brand-surface hover:bg-brand-wine text-white text-xs transition-colors" title="Copiar correo">
+                  <i class="ph ph-copy"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECCIÓN 3: PROYECTOS ==================== -->
+    <section id="section-proyectos" class="section-pane hidden fade-in-section max-w-7xl mx-auto px-5 sm:px-8 py-12 md:py-20 w-full">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+        <div>
+          <span class="text-brand-wine text-xs uppercase tracking-[0.25em] font-semibold">Portafolio Seleccionado</span>
+          <h2 class="font-display text-4xl sm:text-6xl text-white mt-2">Proyectos Destacados</h2>
+          <p class="text-brand-muted text-sm max-w-xl mt-2 font-light">
+            Haz clic en cualquiera de los proyectos para abrir su **página de lectura corrida**, con todos los detalles técnicos, análisis, manuales y mockups sin interrupciones.
+          </p>
+        </div>
+        <div class="text-xs uppercase tracking-widest text-brand-muted">
+          3 Casos de Estudio
+        </div>
+      </div>
+
+      <!-- Tarjetas de Proyectos en Cuadrícula Orgánica -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- PROYECTO 1: Nova Studio -->
+        <article class="group relative rounded-3xl bg-brand-surface/60 border editorial-border hover:border-brand-novaLilac/50 transition-all duration-500 overflow-hidden flex flex-col justify-between cursor-pointer" onclick="openProjectModal('nova-studio')">
+          <div class="p-6 sm:p-8">
+            <div class="flex items-center justify-between text-xs mb-6">
+              <span class="text-brand-novaLilac font-medium tracking-wider uppercase">01 / Branding</span>
+              <span class="text-brand-muted">2026</span>
+            </div>
+            
+            <!-- Imagen Real Nova Studio -->
+            <div class="h-52 rounded-2xl bg-[#fdfbfd] border border-brand-novaPurple/20 flex items-center justify-center p-6 relative overflow-hidden group-hover:scale-[1.02] transition-transform duration-500">
+              <img src="image_4d637f.png" alt="Logotipo e Isotipo Nova Studio - Doménica Chica" class="max-h-40 w-auto object-contain drop-shadow-md">
+            </div>
+
+            <div class="mt-6">
+              <h3 class="font-display text-2xl text-white group-hover:text-brand-novaLilac transition-colors">Nova Studio</h3>
+              <p class="text-xs text-brand-muted font-light mt-2 line-clamp-2">
+                Desarrollo de identidad de marca integral basada en tres pilares: autenticidad, precisión y creatividad. Manual normativo y papelería corporativa.
+              </p>
+            </div>
+          </div>
+
+          <div class="px-8 pb-8 pt-2 flex items-center justify-between border-t border-white/5">
+            <span class="text-xs text-brand-sand font-medium inline-flex items-center gap-1 group-hover:text-brand-novaLilac">
+              Leer caso de corrido
+              <i class="ph ph-arrow-right"></i>
+            </span>
+            <span class="text-[10px] uppercase tracking-wider text-brand-muted">Manual + Branding</span>
+          </div>
+        </article>
+
+        <!-- PROYECTO 2: Iberia Tipografía -->
+        <article class="group relative rounded-3xl bg-brand-surface/60 border editorial-border hover:border-amber-400/50 transition-all duration-500 overflow-hidden flex flex-col justify-between cursor-pointer" onclick="openProjectModal('iberia')">
+          <div class="p-6 sm:p-8">
+            <div class="flex items-center justify-between text-xs mb-6">
+              <span class="text-amber-400 font-medium tracking-wider uppercase">02 / Tipografía</span>
+              <span class="text-brand-muted">2026</span>
+            </div>
+            
+            <!-- Imagen Real Iberia Display -->
+            <div class="h-52 rounded-2xl bg-[#1c2c44] border border-blue-900/40 flex items-center justify-center p-4 relative overflow-hidden group-hover:scale-[1.02] transition-transform duration-500">
+              <img src="image_4d671f.png" alt="Tipografía Modular Iberia - Titular" class="w-full h-full object-contain drop-shadow-lg">
+            </div>
+
+            <div class="mt-6">
+              <h3 class="font-display text-2xl text-white group-hover:text-amber-300 transition-colors">Iberia — Tipografía Modular</h3>
+              <p class="text-xs text-brand-muted font-light mt-2 line-clamp-2">
+                Sistema tipográfico decorativo basado en la arquitectura, cerámicas de Talavera de la Reina y mosaicos tradicionales de las 17 comunidades autónomas de España.
+              </p>
+            </div>
+          </div>
+
+          <div class="px-8 pb-8 pt-2 flex items-center justify-between border-t border-white/5">
+            <span class="text-xs text-brand-sand font-medium inline-flex items-center gap-1 group-hover:text-amber-300">
+              Leer caso de corrido
+              <i class="ph ph-arrow-right"></i>
+            </span>
+            <span class="text-[10px] uppercase tracking-wider text-brand-muted">Modular + Behance</span>
+          </div>
+        </article>
+
+        <!-- PROYECTO 3: Infografía Source Sans -->
+        <article class="group relative rounded-3xl bg-brand-surface/60 border editorial-border hover:border-teal-400/50 transition-all duration-500 overflow-hidden flex flex-col justify-between cursor-pointer" onclick="openProjectModal('source-sans')">
+          <div class="p-6 sm:p-8">
+            <div class="flex items-center justify-between text-xs mb-6">
+              <span class="text-teal-400 font-medium tracking-wider uppercase">03 / Data Viz</span>
+              <span class="text-brand-muted">2026</span>
+            </div>
+            
+            <!-- Imagen Real Infografía Source Sans -->
+            <div class="h-52 rounded-2xl bg-[#0b1c24] border border-teal-900/40 flex items-center justify-center relative overflow-hidden group-hover:scale-[1.02] transition-transform duration-500">
+              <img src="Source-infografía_2.jpg" alt="Infografía Source Sans Paul D Hunt" class="w-full h-full object-cover object-top opacity-90 group-hover:opacity-100 transition-opacity">
+              <div class="absolute inset-0 bg-gradient-to-t from-brand-surface via-transparent to-transparent opacity-60"></div>
+            </div>
+
+            <div class="mt-6">
+              <h3 class="font-display text-2xl text-white group-hover:text-teal-300 transition-colors">Source Sans • Infografía</h3>
+              <p class="text-xs text-brand-muted font-light mt-2 line-clamp-2">
+                Visualización de datos analizando la legibilidad, ángulos de lectura y escala tipográfica de la primera familia open source de Adobe.
+              </p>
+            </div>
+          </div>
+
+          <div class="px-8 pb-8 pt-2 flex items-center justify-between border-t border-white/5">
+            <span class="text-xs text-brand-sand font-medium inline-flex items-center gap-1 group-hover:text-teal-300">
+              Leer caso de corrido
+              <i class="ph ph-arrow-right"></i>
+            </span>
+            <span class="text-[10px] uppercase tracking-wider text-brand-muted">Data Viz + Editorial</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ==================== SECCIÓN 4: HOBBIES & CREATIVIDAD ==================== -->
+    <section id="section-hobbies" class="section-pane hidden fade-in-section max-w-7xl mx-auto px-5 sm:px-8 py-12 md:py-20 w-full">
+      <div class="max-w-3xl mb-12">
+        <span class="text-brand-wine text-xs uppercase tracking-[0.25em] font-semibold">Inspiración & Lado Humano</span>
+        <h2 class="font-display text-4xl sm:text-6xl text-white mt-2">Hobbies & Sensibilidad</h2>
+        <p class="text-brand-muted text-sm max-w-2xl mt-2 font-light">
+          El proceso creativo se nutre constantemente del mundo análogo, la literatura y el lenguaje cinematográfico. Puedes explorar la **lectura corrida completa** con la galería de bocetos y obras.
+        </p>
+        <div class="mt-4">
+          <button onclick="openHobbiesFullReader()" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-brand-surface border editorial-border hover:border-brand-wine text-xs uppercase tracking-widest text-brand-sand transition-all">
+            <i class="ph ph-book-open-text text-base text-brand-wine"></i>
+            Abrir Visor de Lectura Corrida de Hobbies
+          </button>
+        </div>
+      </div>
+
+      <!-- Tarjetas de Hobbies -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Hobby 1: Lectura -->
+        <div class="p-6 rounded-3xl bg-brand-surface/40 border editorial-border hover:border-brand-wine/50 transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-brand-black/60 border editorial-border flex items-center justify-center text-brand-wine mb-6">
+              <i class="ph ph-books text-2xl"></i>
+            </div>
+            <h3 class="font-display text-xl text-white mb-2">Lectura</h3>
+            <p class="text-xs text-brand-muted leading-relaxed font-light">
+              "Me gusta leer como una forma de conocer nuevas historias, ideas y perspectivas que también pueden servir como fuente de inspiración."
+            </p>
+          </div>
+          <div class="pt-6 border-t editorial-border mt-6 text-[10px] uppercase tracking-wider text-zinc-500">
+            Ficción • Ensayo • Narrativa
+          </div>
+        </div>
+
+        <!-- Hobby 2: Cine y Series -->
+        <div class="p-6 rounded-3xl bg-brand-surface/40 border editorial-border hover:border-brand-wine/50 transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-brand-black/60 border editorial-border flex items-center justify-center text-brand-wine mb-6">
+              <i class="ph ph-film-slate text-2xl"></i>
+            </div>
+            <h3 class="font-display text-xl text-white mb-2">Cine & Series</h3>
+            <p class="text-xs text-brand-muted leading-relaxed font-light">
+              "Disfruto descubrir historias a través del cine y las series. Me gusta observar los detalles, la fotografía, los escenarios y la manera en que cada historia transmite emociones."
+            </p>
+          </div>
+          <div class="pt-6 border-t editorial-border mt-6 text-[10px] uppercase tracking-wider text-zinc-500">
+            Fotografía • Dirección de Arte
+          </div>
+        </div>
+
+        <!-- Hobby 3: Música -->
+        <div class="p-6 rounded-3xl bg-brand-surface/40 border editorial-border hover:border-brand-wine/50 transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-brand-black/60 border editorial-border flex items-center justify-center text-brand-wine mb-6">
+              <i class="ph ph-waveform text-2xl"></i>
+            </div>
+            <h3 class="font-display text-xl text-white mb-2">Música</h3>
+            <p class="text-xs text-brand-muted leading-relaxed font-light">
+              "Disfruto especialmente del rock alternativo, pop rock, indie pop y rock en español. Me gustan las canciones que transmiten emociones y tienen una identidad propia."
+            </p>
+          </div>
+          <div class="pt-6 border-t editorial-border mt-6 text-[10px] uppercase tracking-wider text-zinc-500">
+            Indie • Alt-Rock • En Español
+          </div>
+        </div>
+
+        <!-- Hobby 4: Acuarela e Ilustración -->
+        <div class="p-6 rounded-3xl bg-brand-surface/40 border editorial-border hover:border-brand-wine/50 transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-brand-black/60 border editorial-border flex items-center justify-center text-brand-wine mb-6">
+              <i class="ph ph-paint-brush text-2xl"></i>
+            </div>
+            <h3 class="font-display text-xl text-white mb-2">Acuarela & Dibujo</h3>
+            <p class="text-xs text-brand-muted leading-relaxed font-light">
+              "Disfruto pintar con acuarelas y experimentar con los colores y las texturas que se pueden crear con esta técnica, así como dibujos a tinta minuciosos."
+            </p>
+          </div>
+          <div class="pt-6 border-t editorial-border mt-6 text-[10px] uppercase tracking-wider text-zinc-500">
+            Pigmentos • Bocetería • Tinta
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== SECCIÓN 5: CONTACTO ==================== -->
+    <section id="section-contacto" class="section-pane hidden fade-in-section max-w-7xl mx-auto px-5 sm:px-8 py-12 md:py-20 w-full">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div class="lg:col-span-5 flex flex-col gap-6">
+          <div>
+            <span class="text-brand-wine text-xs uppercase tracking-[0.25em] font-semibold">Conectemos</span>
+            <h2 class="font-display text-4xl sm:text-6xl text-white mt-2">Contacto</h2>
+            <p class="font-script italic text-2xl text-brand-sand/80 mt-2">"Let's create something memorable."</p>
+          </div>
+
+          <p class="text-brand-muted text-sm font-light leading-relaxed">
+            ¿Tienes un proyecto de branding, diseño editorial, tipografía o visualización en mente? Escríbeme y exploremos cómo llevarlo a cabo con autenticidad y precisión.
+          </p>
+
+          <div class="space-y-4 pt-2">
+            <div class="flex items-center gap-4 p-4 rounded-2xl bg-brand-surface/50 border editorial-border">
+              <div class="w-10 h-10 rounded-xl bg-brand-wine/20 flex items-center justify-center text-brand-wine">
+                <i class="ph ph-envelope-simple text-xl"></i>
+              </div>
+              <div class="flex-1 min-w-0">
+                <div class="text-[10px] tracking-wider uppercase text-brand-muted">Email Principal</div>
+                <div class="text-sm font-medium text-white truncate">novastudio@gmail.com</div>
+              </div>
+              <button onclick="copyToClipboard('novastudio@gmail.com', this)" class="text-xs text-brand-muted hover:text-white p-2">
+                <i class="ph ph-copy"></i>
+              </button>
+            </div>
+
+            <div class="flex items-center gap-4 p-4 rounded-2xl bg-brand-surface/50 border editorial-border">
+              <div class="w-10 h-10 rounded-xl bg-brand-wine/20 flex items-center justify-center text-brand-wine">
+                <i class="ph ph-phone text-xl"></i>
+              </div>
+              <div class="flex-1 min-w-0">
+                <div class="text-[10px] tracking-wider uppercase text-brand-muted">Teléfono / WhatsApp</div>
+                <div class="text-sm font-medium text-white">+593 099 836 8387</div>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-4 p-4 rounded-2xl bg-brand-surface/50 border editorial-border">
+              <div class="w-10 h-10 rounded-xl bg-brand-wine/20 flex items-center justify-center text-brand-wine">
+                <i class="ph ph-behance-logo text-xl"></i>
+              </div>
+              <div class="flex-1 min-w-0">
+                <div class="text-[10px] tracking-wider uppercase text-brand-muted">Portafolio Behance</div>
+                <a href="https://www.behance.net/gallery/236396865/lberia-Tipografia-Modular" target="_blank" class="text-sm font-medium text-brand-sand hover:underline truncate block">
+                  behance.net/gallery/236396865/lberia
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Formulario elegante de contacto -->
+        <div class="lg:col-span-7">
+          <div class="p-8 sm:p-10 rounded-3xl bg-brand-surface/80 border editorial-border backdrop-blur-md">
+            <h3 class="text-xl font-display text-white mb-6">Enviar Mensaje</h3>
+            
+            <form id="contactForm" onsubmit="handleFormSubmit(event)" class="space-y-5">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div>
+                  <label class="block text-xs uppercase tracking-wider text-brand-muted mb-2">Tu Nombre</label>
+                  <input type="text" required placeholder="Ej. Sofía Valdivieso" class="w-full px-4 py-3 rounded-xl bg-brand-black/60 border editorial-border text-white text-sm focus:outline-none focus:border-brand-wine transition-colors">
+                </div>
+                <div>
+                  <label class="block text-xs uppercase tracking-wider text-brand-muted mb-2">Tu Correo Electrónico</label>
+                  <input type="email" required placeholder="ejemplo@correo.com" class="w-full px-4 py-3 rounded-xl bg-brand-black/60 border editorial-border text-white text-sm focus:outline-none focus:border-brand-wine transition-colors">
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs uppercase tracking-wider text-brand-muted mb-2">Tipo de Proyecto</label>
+                <select class="w-full px-4 py-3 rounded-xl bg-brand-black/60 border editorial-border text-brand-sand text-sm focus:outline-none focus:border-brand-wine transition-colors">
+                  <option value="branding">Branding e Identidad Visual (Nova Studio Style)</option>
+                  <option value="editorial">Diseño Editorial / Publicación</option>
+                  <option value="tipografia">Diseño Tipográfico Especializado</option>
+                  <option value="infografia">Infografía & Visualización de Datos</option>
+                  <option value="otro">Otro proyecto creativo</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-xs uppercase tracking-wider text-brand-muted mb-2">Mensaje o Detalle del Proyecto</label>
+                <textarea rows="4" required placeholder="Cuéntame sobre la visión de tu marca..." class="w-full px-4 py-3 rounded-xl bg-brand-black/60 border editorial-border text-white text-sm focus:outline-none focus:border-brand-wine transition-colors resize-none"></textarea>
+              </div>
+
+              <button type="submit" class="w-full py-3.5 rounded-xl bg-brand-wine hover:bg-brand-crimson text-white text-xs uppercase tracking-widest font-semibold transition-all duration-300 shadow-lg shadow-brand-wine/25">
+                Enviar Propuesta
+              </button>
+            </form>
+
+            <div id="formSuccessMessage" class="hidden mt-4 p-4 rounded-xl bg-emerald-950/60 border border-emerald-500/40 text-emerald-200 text-xs text-center">
+              ¡Gracias por escribir! Tu mensaje ha sido simulado con éxito. Me pondré en contacto muy pronto.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- PIE DE PÁGINA COMÚN -->
+  <footer class="border-t editorial-border py-8 relative z-10 bg-brand-black/90">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-brand-muted">
+      <div>
+        © 2026 <span class="text-white">Doménica Chica</span> — Diseñadora Gráfica
+      </div>
+      <div class="flex items-center gap-6">
+        <span>Cuenca, Ecuador</span>
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="hover:text-white transition-colors">Subir arriba ↑</button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL / VISTA DE LECTURA CORRIDA (Para Proyectos y Hobbies continuos) -->
+  <!-- ========================================================================= -->
+  <div id="readingModal" class="fixed inset-0 z-50 bg-brand-black/95 backdrop-blur-xl hidden overflow-y-auto">
+    <!-- Barra superior fija del lector -->
+    <div class="sticky top-0 left-0 right-0 z-20 bg-brand-black/90 border-b editorial-border px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <span class="w-3 h-3 rounded-full bg-brand-wine"></span>
+        <span id="modalCategoryBadge" class="text-xs uppercase tracking-widest text-brand-muted">Caso de Estudio</span>
+      </div>
+      <div class="flex items-center gap-4">
+        <button onclick="closeReadingModal()" class="flex items-center gap-2 text-xs uppercase tracking-wider text-brand-muted hover:text-white px-4 py-2 rounded-full border editorial-border hover:bg-brand-surface transition-all">
+          <i class="ph ph-x text-base"></i>
+          <span>Cerrar Lectura</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Contenedor del documento corrido -->
+    <div class="max-w-4xl mx-auto px-5 sm:px-8 py-12">
+      <div id="modalDynamicContent" class="space-y-12">
+        <!-- El contenido se inyecta dinámicamente con JavaScript -->
+      </div>
+
+      <!-- Pie de lectura corrida -->
+      <div class="mt-16 pt-8 border-t editorial-border flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="text-xs text-brand-muted">
+          Fin del documento de corrido • Doménica Chica Portfolio
+        </div>
+        <button onclick="closeReadingModal()" class="px-6 py-2.5 rounded-full bg-brand-wine hover:bg-brand-crimson text-white text-xs uppercase tracking-widest font-semibold transition-all">
+          Volver a las Secciones
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICACIÓN -->
+  <div id="toastNotification" class="fixed bottom-6 right-6 z-50 bg-brand-surface border editorial-border text-white text-xs px-5 py-3 rounded-2xl shadow-2xl translate-y-20 opacity-0 transition-all duration-300 pointer-events-none flex items-center gap-3">
+    <i class="ph ph-check-circle text-brand-wine text-lg"></i>
+    <span id="toastMessage">Texto copiado al portapapeles</span>
+  </div>
+
+  <!-- ==================== JAVASCRIPT ==================== -->
+  <script>
+    // 1. Control de Navegación por Secciones (Modular, no corrido)
+    function navigateTo(sectionId) {
+      // Ocultar todas las secciones
+      const panes = document.querySelectorAll('.section-pane');
+      panes.forEach(pane => {
+        pane.classList.add('hidden');
+        pane.classList.remove('active');
+      });
+
+      // Mostrar la sección seleccionada
+      const targetPane = document.getElementById(`section-${sectionId}`);
+      if (targetPane) {
+        targetPane.classList.remove('hidden');
+        targetPane.classList.add('active');
+      }
+
+      // Actualizar estado activo en botones de navegación
+      const navButtons = document.querySelectorAll('.nav-btn');
+      navButtons.forEach(btn => {
+        if (btn.getAttribute('data-target') === sectionId) {
+          btn.classList.add('bg-brand-wine/40', 'text-white');
+          btn.classList.remove('text-brand-muted');
+        } else {
+          btn.classList.remove('bg-brand-wine/40', 'text-white');
+          btn.classList.add('text-brand-muted');
+        }
+      });
+
+      // Scroll arriba suavemente al cambiar de vista
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Toggle menú móvil
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      const icon = document.getElementById('mobileMenuIcon');
+      menu.classList.toggle('hidden');
+      if (menu.classList.contains('hidden')) {
+        icon.className = 'ph ph-list';
+      } else {
+        icon.className = 'ph ph-x';
+      }
+    }
+
+    // 2. Base de datos de Proyectos para la LECTURA DE CORRIDO
+    const projectsData = {
+      'nova-studio': {
+        category: 'Branding & Identidad Visual • Manual de Marca',
+        title: 'Nova Studio',
+        tagline: 'Autenticidad, Precisión y Creatividad.',
+        html: `
+          <!-- Cabecera del Caso -->
+          <div class="border-b editorial-border pb-8">
+            <span class="text-brand-novaLilac text-xs uppercase tracking-[0.25em] font-semibold">Proyecto de Identidad 01</span>
+            <h1 class="font-display text-4xl sm:text-6xl text-white mt-2 mb-4">Nova Studio</h1>
+            <p class="text-xl text-brand-sand/90 font-light leading-relaxed">
+              Desarrollo de una identidad visual completa para una marca, creando una imagen coherente, auténtica y capaz de conectar con su público.
+            </p>
+          </div>
+
+          <!-- Presentación de la Imagen Oficial del Logo -->
+          <div class="p-8 sm:p-12 rounded-3xl bg-[#f7f5fa] border editorial-border text-center flex flex-col items-center justify-center">
+            <img src="image_4d637f.png" alt="Identidad Visual Nova Studio" class="max-h-72 w-auto object-contain drop-shadow-xl mb-4">
+            <div class="text-xs uppercase tracking-widest text-[#41285A] font-semibold">Isotipo Modular & Tipografía Corporativa</div>
+          </div>
+
+          <!-- Bloque de Fundamentos -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
+            <div class="p-6 rounded-2xl bg-brand-surface/60 border border-brand-novaPurple/40">
+              <div class="text-brand-novaLilac font-bold text-sm mb-1 uppercase tracking-wider">01. Autenticidad</div>
+              <p class="text-xs text-brand-muted leading-relaxed">Creamos propuestas que reflejan la esencia única y memorable de cada proyecto sin caer en fórmulas genéricas.</p>
+            </div>
+            <div class="p-6 rounded-2xl bg-brand-surface/60 border border-brand-novaPurple/40">
+              <div class="text-brand-novaLilac font-bold text-sm mb-1 uppercase tracking-wider">02. Precisión</div>
+              <p class="text-xs text-brand-muted leading-relaxed">Cuidamos cada detalle técnico, retícula y proporciones para construir soluciones claras, rigurosas y funcionales.</p>
+            </div>
+            <div class="p-6 rounded-2xl bg-brand-surface/60 border border-brand-novaPurple/40">
+              <div class="text-brand-novaLilac font-bold text-sm mb-1 uppercase tracking-wider">03. Creatividad</div>
+              <p class="text-xs text-brand-muted leading-relaxed">Exploramos nuevas posibilidades dimensionales, pliegues geométricos y contrastes formales distintivos.</p>
+            </div>
+          </div>
+
+          <!-- Análisis de Construcción Geométrica y Morfología -->
+          <div class="p-8 rounded-3xl bg-brand-surface/40 border editorial-border space-y-6">
+            <div class="flex items-center justify-between">
+              <h3 class="font-display text-2xl text-white">Geometrización & Isotipo</h3>
+              <span class="text-xs font-mono text-brand-novaLilac">Proporción 1.3 x 1.5 cm</span>
+            </div>
+            <p class="text-sm text-brand-sand/80 leading-relaxed font-light">
+              El isotipo surge de la síntesis de la letra "N" a través de cintas angulares plegadas en una perspectiva isométrica dinámica. La estructura representa solidez y movimiento continuo, diseñada con exactitud de retícula para mantener legibilidad en reducciones extremas.
+            </p>
+          </div>
+
+          <!-- Paleta Cromática Institucional -->
+          <div>
+            <h3 class="font-display text-2xl text-white mb-4">Cromática Institucional</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div class="p-5 rounded-2xl bg-[#41285A] text-white">
+                <div class="text-xs uppercase tracking-wider font-semibold">Púrpura Profundo</div>
+                <div class="text-[11px] mt-2 opacity-90 font-mono">RGB: 65, 40, 90</div>
+                <div class="text-[11px] opacity-90 font-mono">CMYK: 28% 57% 0% 65%</div>
+                <div class="text-[11px] opacity-90 font-mono">HEX: #41285A</div>
+              </div>
+              <div class="p-5 rounded-2xl bg-[#9B81A6] text-black">
+                <div class="text-xs uppercase tracking-wider font-semibold">Lila Medio</div>
+                <div class="text-[11px] mt-2 opacity-90 font-mono">RGB: 155, 129, 166</div>
+                <div class="text-[11px] opacity-90 font-mono">CMYK: 7% 22% 0% 35%</div>
+                <div class="text-[11px] opacity-90 font-mono">HEX: #9B81A6</div>
+              </div>
+              <div class="p-5 rounded-2xl bg-[#B9A3BF] text-black">
+                <div class="text-xs uppercase tracking-wider font-semibold">Lavanda Suave</div>
+                <div class="text-[11px] mt-2 opacity-90 font-mono">RGB: 185, 163, 191</div>
+                <div class="text-[11px] opacity-90 font-mono">CMYK: 4% 15% 0% 25%</div>
+                <div class="text-[11px] opacity-90 font-mono">HEX: #B9A3BF</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tipografía Corporativa -->
+          <div class="p-8 rounded-3xl bg-brand-surface/40 border editorial-border">
+            <h3 class="font-display text-2xl text-white mb-2">Sistema Tipográfico</h3>
+            <p class="text-xs text-brand-muted mb-6">Uso normativo de las fuentes New Order y Alfabet (Thin) para jerarquía de títulos y textos institucionales.</p>
+            <div class="space-y-4">
+              <div class="p-4 rounded-xl bg-brand-black/50 border editorial-border">
+                <div class="text-xs text-brand-novaLilac uppercase tracking-widest font-mono">Titular Principal: New Order</div>
+                <div class="text-lg text-white font-medium mt-1">ABCDEFGHIJKLMNOPQRSTUVWXYZ • 1234567890</div>
+              </div>
+              <div class="p-4 rounded-xl bg-brand-black/50 border editorial-border">
+                <div class="text-xs text-brand-novaLilac uppercase tracking-widest font-mono">Cuerpo de Texto: Alfabet (Thin)</div>
+                <div class="text-sm text-zinc-300 font-light mt-1">abcdefghijklmnopqrstuvwxyz • legibilidad en bloques largos</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Aplicaciones y Papelería Corporativa -->
+          <div>
+            <h3 class="font-display text-2xl text-white mb-4">Piezas Corporativas Desarrolladas</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="p-6 rounded-2xl bg-brand-surface border editorial-border">
+                <i class="ph ph-identification-card text-3xl text-brand-novaLilac mb-3"></i>
+                <h4 class="text-white font-medium text-sm">Tarjeta de Presentación</h4>
+                <p class="text-xs text-brand-muted mt-1">Diseño vertical y horizontal con isotipo perimetral y datos tipográficos limpios.</p>
+              </div>
+              <div class="p-6 rounded-2xl bg-brand-surface border editorial-border">
+                <i class="ph ph-envelope-simple text-3xl text-brand-novaLilac mb-3"></i>
+                <h4 class="text-white font-medium text-sm">Sobre Corporativo & Hoja Membretada</h4>
+                <p class="text-xs text-brand-muted mt-1">Formatos 22x11 cm y A4 (21x29.7 cm) con franjas cromáticas moradas institucionales.</p>
+              </div>
+              <div class="p-6 rounded-2xl bg-brand-surface border editorial-border">
+                <i class="ph ph-notebook text-3xl text-brand-novaLilac mb-3"></i>
+                <h4 class="text-white font-medium text-sm">Cuaderno de Bocetos</h4>
+                <p class="text-xs text-brand-muted mt-1">Acabado 14.5x21 cm pensado para el trabajo creativo y de taller del diseñador.</p>
+              </div>
+              <div class="p-6 rounded-2xl bg-brand-surface border editorial-border">
+                <i class="ph ph-t-shirt text-3xl text-brand-novaLilac mb-3"></i>
+                <h4 class="text-white font-medium text-sm">Uniforme & Merchandising</h4>
+                <p class="text-xs text-brand-muted mt-1">Bordado del isotipo en 5x4.5 cm sobre textiles oscuros corporativos.</p>
+              </div>
+            </div>
+          </div>
+        `
+      },
+      'iberia': {
+        category: 'Tipografía Display • Sistema Modular',
+        title: 'Iberia — Tipografía Modular',
+        tagline: 'Inspirada en el arte, los azulejos y las cerámicas de España.',
+        html: `
+          <div class="border-b editorial-border pb-8">
+            <span class="text-amber-400 text-xs uppercase tracking-[0.25em] font-semibold">Proyecto de Tipografía 02</span>
+            <h1 class="font-display text-4xl sm:text-6xl text-white mt-2 mb-4">Iberia Modular</h1>
+            <p class="text-xl text-brand-sand/90 font-light leading-relaxed">
+              Un sistema alfabético decorativo que fusiona tradición y vanguardia visual, rescatando los patrones ornamentales de las 17 regiones autónomas españolas.
+            </p>
+          </div>
+
+          <!-- Titular Ornamental Real IBERIA -->
+          <div class="p-6 sm:p-10 rounded-3xl bg-[#132338] border border-blue-800/40 text-center flex flex-col items-center justify-center">
+            <img src="image_4d671f.png" alt="Palabra IBERIA tipografía completa" class="w-full max-h-56 object-contain drop-shadow-2xl">
+            <div class="text-xs uppercase tracking-widest text-blue-200/80 font-mono mt-4">Composición Modular de la palabra "IBERIA"</div>
+          </div>
+
+          <!-- Concepto y Memoria Descriptiva -->
+          <div class="p-8 rounded-3xl bg-brand-surface/40 border editorial-border leading-relaxed font-light text-brand-sand/90 text-sm space-y-4">
+            <h3 class="font-display text-2xl text-white mb-2">Fundamentación Teórica</h3>
+            <p>
+              España incluye 17 regiones autónomas con diversas características geográficas y culturales. Su arte y diseño reflejan una mezcla de tradición y modernidad, visible en la arquitectura, los mosaicos y las cerámicas como las de <strong>Talavera de la Reina</strong>.
+            </p>
+            <p>
+              Los colores vibrantes, las formas geométricas y la artesanía representan su identidad y pasión, haciendo de España una fuente constante de inspiración visual que en este proyecto se traduce en módulos geométricos combinables.
+            </p>
+          </div>
+
+          <!-- Alfabeto Completo Real A-Z -->
+          <div class="p-8 sm:p-10 rounded-3xl bg-white border border-stone-200 text-center flex flex-col items-center justify-center">
+            <div class="w-full flex items-center justify-between mb-4 border-b border-stone-200 pb-3 text-stone-600">
+              <span class="text-xs uppercase tracking-widest font-semibold">Espécimen Tipográfico Completo (A - Z)</span>
+              <span class="text-xs font-mono">Adobe Illustrator</span>
+            </div>
+            <img src="image_4d66de.png" alt="Abecedario modular completo de Iberia" class="w-full max-h-[580px] object-contain">
+            <div class="text-xs text-stone-500 font-mono mt-4">26 Caracteres Modulares Ornamentales inspirados en los azulejos de Sevilla y Barcelona</div>
+          </div>
+
+          <!-- Behance Callout -->
+          <div class="p-6 rounded-2xl bg-brand-wine/20 border border-brand-wine/50 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>
+              <div class="text-white font-medium text-sm">¿Deseas ver el espécimen completo y sus mockups en Behance?</div>
+              <div class="text-xs text-brand-muted">Revisa las láminas, bolsas de tela y aplicaciones en alta resolución.</div>
+            </div>
+            <a href="https://www.behance.net/gallery/236396865/lberia-Tipografia-Modular" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-full bg-brand-wine hover:bg-brand-crimson text-white text-xs uppercase tracking-widest font-semibold transition-all flex items-center gap-2">
+              <span>Abrir Behance</span>
+              <i class="ph ph-arrow-up-right"></i>
+            </a>
+          </div>
+        `
+      },
+      'source-sans': {
+        category: 'Infografía Científica • Visualización de Datos',
+        title: 'Source Sans — Paul D. Hunt',
+        tagline: 'Lectura y rendimiento tipográfico en pantallas digitales.',
+        html: `
+          <div class="border-b editorial-border pb-8">
+            <span class="text-teal-400 text-xs uppercase tracking-[0.25em] font-semibold">Proyecto de Infografía 03</span>
+            <h1 class="font-display text-4xl sm:text-6xl text-white mt-2 mb-4">Source Sans Data Viz</h1>
+            <p class="text-xl text-brand-sand/90 font-light leading-relaxed">
+              Infografía de visualización de datos diseñada para comunicar con rigor los resultados analíticos y pruebas de legibilidad de la fuente Source Sans.
+            </p>
+          </div>
+
+          <!-- Póster Infográfico Completo Real -->
+          <div class="p-4 sm:p-6 rounded-3xl bg-[#071820] border border-teal-800/40 flex flex-col items-center">
+            <div class="w-full flex items-center justify-between mb-3 px-2 text-xs text-teal-300 font-mono">
+              <span>Lámina Infográfica Oficial</span>
+              <span>Lectura y Rendimiento</span>
+            </div>
+            <div class="w-full rounded-2xl overflow-hidden shadow-2xl border border-teal-500/20">
+              <img src="Source-infografía_2.jpg" alt="Infografía Lectura y Rendimiento Source Sans - Paul D. Hunt" class="w-full h-auto object-contain">
+            </div>
+          </div>
+
+          <!-- Contexto Histórico: Paul D. Hunt -->
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+            <div class="md:col-span-8 p-8 rounded-3xl bg-brand-surface/40 border editorial-border space-y-4 text-sm font-light leading-relaxed text-brand-sand/90">
+              <h3 class="font-display text-2xl text-white">Paul D. Hunt y el Hito de Adobe</h3>
+              <p>
+                En 2009 ingresó al equipo de tipografía de Adobe, donde lideró proyectos y creó las primeras tipografías <strong>open source</strong> de la empresa. En 2012 lanzó formalmente <strong>Source Sans</strong>.
+              </p>
+              <p>
+                Su diseño se inspiró en las góticas estadounidenses clásicas del siglo XX (Franklin Gothic y News Gothic), perfeccionadas para una claridad insuperable en pantallas, interfaces de usuario y textos continuos.
+              </p>
+            </div>
+            <div class="md:col-span-4 p-6 rounded-3xl bg-[#091a21] border border-teal-500/30 text-center">
+              <div class="w-20 h-20 rounded-full mx-auto bg-teal-500/20 border border-teal-400/40 flex items-center justify-center text-teal-300 font-display text-3xl mb-3">
+                S
+              </div>
+              <div class="text-sm font-medium text-white">Paul D. Hunt</div>
+              <div class="text-xs text-teal-300/80">Reading University • Adobe Type</div>
+            </div>
+          </div>
+
+          <!-- Desglose de Experimentos de Lectura -->
+          <div>
+            <h3 class="font-display text-2xl text-white mb-4">Experimentos de Legibilidad</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              
+              <div class="p-6 rounded-2xl bg-brand-surface border editorial-border">
+                <span class="text-xs font-mono text-teal-400">Experimento 01</span>
+                <h4 class="text-white text-base font-medium mt-1 mb-2">Escala de Tamaños</h4>
+                <div class="space-y-2 mt-4 text-xs font-mono">
+                  <div class="flex justify-between items-center bg-brand-black/40 p-2 rounded">
+                    <span>13 pt</span>
+                    <span class="text-teal-300">Rendimiento Base</span>
+                  </div>
+                  <div class="flex justify-between items-center bg-brand-black/40 p-2 rounded">
+                    <span>15 pt</span>
+                    <span class="text-teal-300">Óptimo (+18%)</span>
+                  </div>
+                  <div class="flex justify-between items-center bg-brand-black/40 p-2 rounded">
+                    <span>17 pt</span>
+                    <span class="text-teal-300">Máxima Nitidez</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="p-6 rounded-2xl bg-brand-surface border editorial-border">
+                <span class="text-xs font-mono text-teal-400">Experimento 02</span>
+                <h4 class="text-white text-base font-medium mt-1 mb-2">Ángulo de Visión</h4>
+                <p class="text-xs text-brand-muted leading-relaxed">
+                  Pruebas de curvatura desde 15° hasta 90° de inclinación visual en dispositivos portátiles, validando la estabilidad de las contraformas.
+                </p>
+                <div class="mt-4 text-[11px] text-teal-300 font-mono">Resistencia angular probada</div>
+              </div>
+
+              <div class="p-6 rounded-2xl bg-brand-surface border editorial-border">
+                <span class="text-xs font-mono text-teal-400">Experimento 03</span>
+                <h4 class="text-white text-base font-medium mt-1 mb-2">Jerarquía & Opacidades</h4>
+                <p class="text-xs text-brand-muted leading-relaxed">
+                  Simbología por opacidad del 25% (Light), 50% (Regular), 75% (Medium) y 100% (Bold) para diferenciar capas semánticas de información.
+                </p>
+                <div class="mt-4 text-[11px] text-teal-300 font-mono">4 Pesos evaluados</div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Conclusión Técnica -->
+          <div class="p-8 rounded-3xl bg-brand-black border editorial-border text-center">
+            <p class="font-script italic text-2xl text-teal-100 max-w-2xl mx-auto">
+              "La legibilidad de Source Sans se debe a sus contraformas amplias, trazos uniformes y una altura x elevada."
+            </p>
+            <div class="text-xs text-brand-muted uppercase tracking-widest mt-4">Conclusión del estudio infográfico</div>
+          </div>
+        `
+      }
+    };
+
+    // 3. Abrir Modal de Proyecto en Modo "Lectura Corrida"
+    function openProjectModal(projectId) {
+      const project = projectsData[projectId];
+      if (!project) return;
+
+      document.getElementById('modalCategoryBadge').innerText = project.category;
+      document.getElementById('modalDynamicContent').innerHTML = project.html;
+
+      const modal = document.getElementById('readingModal');
+      modal.classList.remove('hidden');
+      document.body.classList.add('overflow-hidden');
+    }
+
+    // 4. Abrir Visor de LECTURA CORRIDA para Hobbies (tal como solicitaste para tus PDFs/Ensayos)
+    function openHobbiesFullReader() {
+      document.getElementById('modalCategoryBadge').innerText = 'Lectura Corrida • Hobbies & Lado Creativo';
+      document.getElementById('modalDynamicContent').innerHTML = `
+        <div class="border-b editorial-border pb-8">
+          <span class="text-brand-wine text-xs uppercase tracking-[0.25em] font-semibold">Documento Continuo</span>
+          <h1 class="font-display text-4xl sm:text-6xl text-white mt-2 mb-4">El Diario Creativo</h1>
+          <p class="text-xl text-brand-sand/90 font-light leading-relaxed">
+            Un recorrido de lectura corrida por los intereses, reflexiones y prácticas análogas que nutren mi trabajo como diseñadora.
+          </p>
+        </div>
+
+        <!-- Capítulo 1: La Lectura como semilla -->
+        <article class="space-y-4">
+          <div class="flex items-center gap-3 text-brand-wine text-xs uppercase tracking-widest">
+            <span class="w-8 h-[1px] bg-brand-wine"></span>
+            Capítulo 01 / Pensamiento & Palabra
+          </div>
+          <h2 class="font-display text-3xl text-white">El hábito de leer</h2>
+          <p class="text-brand-sand/90 font-light leading-relaxed text-base">
+            "Me gusta leer como una forma de conocer nuevas historias, ideas y perspectivas que también pueden servir como fuente de inspiración. Cada libro abre un sistema de metáforas que luego se transforman en conceptos visuales, ritmo compositivo y jerarquías tipográficas."
+          </p>
+          <div class="p-6 rounded-2xl bg-brand-surface/50 border editorial-border text-xs text-brand-muted italic">
+            "Leer entrena la mirada para encontrar belleza en la estructura invisible de las cosas."
+          </div>
+        </article>
+
+        <!-- Capítulo 2: Cine y Dirección de Arte -->
+        <article class="space-y-4 pt-6 border-t editorial-border">
+          <div class="flex items-center gap-3 text-brand-wine text-xs uppercase tracking-widest">
+            <span class="w-8 h-[1px] bg-brand-wine"></span>
+            Capítulo 02 / Imagen en Movimiento
+          </div>
+          <h2 class="font-display text-3xl text-white">Cine, Escenografía & Encuadre</h2>
+          <p class="text-brand-sand/90 font-light leading-relaxed text-base">
+            "Disfruto descubrir historias a través del cine y las series. Me gusta observar los detalles, la fotografía, los escenarios y la manera en que cada historia transmite emociones. Analizar cómo directores y directores de arte utilizan el color para evocar estados anímicos es una de mis mayores influencias al crear identidades de marca."
+          </p>
+        </article>
+
+        <!-- Capítulo 3: Música y Textura -->
+        <article class="space-y-4 pt-6 border-t editorial-border">
+          <div class="flex items-center gap-3 text-brand-wine text-xs uppercase tracking-widest">
+            <span class="w-8 h-[1px] bg-brand-wine"></span>
+            Capítulo 03 / Atmósferas Sonoras
+          </div>
+          <h2 class="font-display text-3xl text-white">Música con Identidad</h2>
+          <p class="text-brand-sand/90 font-light leading-relaxed text-base">
+            "Disfruto especialmente del rock alternativo, pop rock, indie pop y rock en español. Me gustan las canciones que transmiten emociones, cuentan historias y tienen una identidad propia. Al diseñar, la música pauta la energía y el dinamismo de los trazos."
+          </p>
+        </article>
+
+        <!-- Capítulo 4: Acuarelas y Experimentación Análoga -->
+        <article class="space-y-4 pt-6 border-t editorial-border">
+          <div class="flex items-center gap-3 text-brand-wine text-xs uppercase tracking-widest">
+            <span class="w-8 h-[1px] bg-brand-wine"></span>
+            Capítulo 04 / Pigmentos y Manchas
+          </div>
+          <h2 class="font-display text-3xl text-white">Acuarela & Trazos a Mano</h2>
+          <p class="text-brand-sand/90 font-light leading-relaxed text-base">
+            "Disfruto pintar con acuarelas y experimentar con los colores y las texturas que se pueden crear con esta técnica. El agua introduce una cuota de sorpresa y organicidad que equilibra la precisión geométrica del software digital."
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+            <div class="p-6 rounded-2xl bg-brand-black border editorial-border text-center">
+              <i class="ph ph-drop text-3xl text-cyan-400 mb-2"></i>
+              <div class="text-sm text-white font-medium">Aguadas & Degradados</div>
+              <div class="text-xs text-brand-muted mt-1">Transparencias luminosas sobre papel prensado en frío.</div>
+            </div>
+            <div class="p-6 rounded-2xl bg-brand-black border editorial-border text-center">
+              <i class="ph ph-pen-nib text-3xl text-brand-wine mb-2"></i>
+              <div class="text-sm text-white font-medium">Línea & Plumilla</div>
+              <div class="text-xs text-brand-muted mt-1">Ilustración botánica, entomológica y anatómica detallada.</div>
+            </div>
+          </div>
+        </article>
+      `;
+
+      const modal = document.getElementById('readingModal');
+      modal.classList.remove('hidden');
+      document.body.classList.add('overflow-hidden');
+    }
+
+    // Cerrar Modal de Lectura
+    function closeReadingModal() {
+      const modal = document.getElementById('readingModal');
+      modal.classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    // Manejo de envío de formulario de contacto
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const msg = document.getElementById('formSuccessMessage');
+      msg.classList.remove('hidden');
+      document.getElementById('contactForm').reset();
+      setTimeout(() => {
+        msg.classList.add('hidden');
+      }, 6000);
+    }
+
+    // Copiar al portapapeles con fallback robusto
+    function copyToClipboard(text, triggerElement) {
+      const textArea = document.createElement("textarea");
+      textArea.value = text;
+      textArea.style.position = "fixed";
+      textArea.style.left = "-999999px";
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+
+      try {
+        document.execCommand('copy');
+        showToast(`Copiado: ${text}`);
+      } catch (err) {
+        showToast('No se pudo copiar automáticamente');
+      }
+
+      document.body.removeChild(textArea);
+    }
+
+    // Mostrar notificación Toast
+    function showToast(message) {
+      const toast = document.getElementById('toastNotification');
+      const textElem = document.getElementById('toastMessage');
+      textElem.innerText = message;
+      toast.classList.remove('translate-y-20', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-20', 'opacity-0');
+      }, 3000);
+    }
+
+    // Cerrar modal con tecla Escape
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeReadingModal();
+      }
+    });
+  </script>
+</body>
+</html>
